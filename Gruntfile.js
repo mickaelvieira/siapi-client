@@ -25,6 +25,17 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
+
+            //"js": {
+            //     options: {
+            //         banner: '<%= banner %>'
+            //     },
+            //         files: {
+            //         'public/dist/js/combined.min.js': [
+            //         'public/js*//***/*//*.js'
+            //        ]
+            //    }
+            //}
             options: {
                 banner: '<%= banner %>'
             },
@@ -80,25 +91,25 @@ module.exports = function (grunt) {
                 src: ['js/**/*.js']
             }
         },
-        jasmine: {
+        /*jasmine: {
             js: {
                 src: '<%= uglify.js.dest %>',
                 options: {
-                    specs: 'spec/*Spec.js'
+                    specs: 'spec*//*Spec.js'
                 }
             }
-        },
+        },*/
         watch: {
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',
                 tasks: ['jshint:gruntfile']
             },
             css: {
-                files: 'css/**/*.css',
+                files: 'public/css/**/*.css',
                 tasks: ['buildcss', 'cacheBust']
             },
             js: {
-                files: ['js/**/*.js', '<%= jasmine.js.options.specs %>'],
+                files: ['public/js/**/*.js'/*, '<%= jasmine.js.options.specs %>'*/],
                 tasks: ['buildjs', 'cacheBust']
             }
         },
