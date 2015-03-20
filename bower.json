@@ -1,22 +1,24 @@
 {
-    "name": "siapi-client",
-    "version": "0.0.1",
-    "authors": [
-        "Mickael Vieira <contact@mickael-vieira.com>"
-    ],
-    "description": "Siapi Client",
-    "license": "",
-    "private": true,
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "components",
-        "test",
-        "tests",
-        "bower_components"
-    ],
-    "dependencies": {
-        "bootstrap": "~3.3.0",
-        "components-font-awesome": "~4.2.0"
-    }
+  "name": "siapi-client",
+  "version": "0.0.1",
+  "authors": [
+    "Mickael Vieira <contact@mickael-vieira.com>"
+  ],
+  "description": "Siapi Client",
+  "license": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests",
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.0",
+    "components-font-awesome": "~4.2.0",
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.3"
+  }
 }
