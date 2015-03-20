@@ -3,7 +3,7 @@ var hbs     = require('hbs');
 var app     = express();
 var http    = require('http');
 
-app.use("public", express.static('public'));
+app.use(express.static('public'));
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
 
