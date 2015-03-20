@@ -14,13 +14,13 @@ module.exports = function (grunt) {
 
         concat: {
             css: {
-                src: 'css/**/*.css',
+                src: 'public/css/**/*.css',
                 dest: 'public/dist/css/combined.css'
             }
         },
         browserify: {
             js: {
-                src: 'js/main.js',
+                src: 'public/js/main.js',
                 dest: 'public/dist/js/combined.js'
             }
         },
@@ -104,6 +104,7 @@ module.exports = function (grunt) {
         },
         cacheBust: {
             options: {
+                baseDir: './public',
                 encoding: 'utf8',
                 algorithm: 'sha1',
                 length: 16,
@@ -115,8 +116,7 @@ module.exports = function (grunt) {
             assets: {
                 files: {
                     src: [
-                        'index.html',
-                        'cv.html'
+                        'views/**/*.html'
                     ]
                 }
             }
@@ -134,6 +134,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-browserify');
 
     grunt.registerTask('buildcss', ['concat:css', 'autoprefixer:css', 'cssmin:css']);
-    grunt.registerTask('buildjs', ['jshint:js', 'browserify', 'uglify:js', 'jasmine:js']);
+    grunt.registerTask('buildjs', ['jshint:js', 'browserify', 'uglify:js'/*, 'jasmine:js'*/]);
     grunt.registerTask('default', ['buildcss', 'buildjs', 'cacheBust']);
 };
