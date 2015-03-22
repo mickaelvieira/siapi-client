@@ -7,18 +7,14 @@ var Search = require("./search.js");
 $(function(window) {
 
     var search = new Search();
-    search.getResults(function(collection) {
+    search.getResult(function(result) {
 
-       console.log(collection);
-
-        var items = collection.items;
-        var item = items.first();
-
-        var value = item.getDataValue('spacecraft');
-
-
-        console.log(item.get('href'));
-        console.log(value);
+       console.log(result.getItems());
+       console.log(result.getLinks());
+       console.log(result.getPrevPageUrl());
+       console.log(result.getNextPageUrl());
+       console.log(result.getFirstPageUrl());
+       console.log(result.getLastPageUrl());
 
     });
 

@@ -7,7 +7,7 @@ var Links = Backbone.Collection.extend({
     model: Link,
 
     getLinkByRelation: function(rel) {
-        return model.links.find(function(link) {
+        return this.models.find(function(link) {
             return (link.get('rel') === rel);
         });
     }

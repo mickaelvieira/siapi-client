@@ -1,22 +1,35 @@
 "use strict";
 
 var Collection = require("./model/collection.js");
+var Result = require("./result.js");
 
 var Search = function() {
     this.collection = new Collection();
 };
 
-Search.prototype.getResults = function(success, error) {
+Search.prototype.getResult = function(success, error) {
 
     this.collection.fetch({
         success: function(model, response, options) {
+
+            var result = new Result(
+                model.items,
+                model.links
+            );
+
             if (typeof success === 'function') {
-                success(model);
+                success(result);
             }
         },
         error: function(model, response, options) {
+
+            var result = new Result(
+                model.items,
+                model.links
+            );
+
             if (typeof error === 'function') {
-                error(model);
+                error(result);
             }
         }
     });
