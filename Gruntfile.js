@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         browserify: {
             js: {
                 src: 'public/js/main.js',
-                dest: 'public/dist/js/combined.js'
+                dest: 'public/dist/js/combined.min.js'
             }
         },
         uglify: {
