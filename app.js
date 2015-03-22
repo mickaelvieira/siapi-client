@@ -1,7 +1,9 @@
 var express = require('express');
 var hbs     = require('hbs');
-var app     = express();
 var http    = require('http');
+var app     = express();
+
+var querystring = require('querystring');
 
 app.use(express.static('public'));
 app.set('view engine', 'html');
@@ -15,10 +17,36 @@ app.get('/', function (req, res) {
 
 app.get('/search', function (req, res) {
 
+    var options = {
+        hostname: 'siapi.dev',
+        post: 80,
+        path: '/search',
+        method: 'GET',
+        headers: {
+            'Accept': 'application/vnd.collection+json'
+        }
+    };
 
-    console.log(req.params);
+    var postData = querystring.stringify({});
+    var request = http.request(options, function (response) {
 
-    res.send({});
+        console.log('STATUS: ' + response.statusCode);
+        console.log('HEADERS: ' + JSON.stringify(response.headers));
+
+        response.setEncoding('utf8');
+
+        response.on('data', function (body) {
+            res.send(body);
+        });
+
+    });
+
+    request.on('error', function(e) {
+        console.log('problem with request: ' + e.message);
+    });
+
+    request.write(postData);
+    request.end();
 });
 
 http.createServer(app).listen(3000, '127.0.0.1');
