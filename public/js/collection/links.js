@@ -10,6 +10,11 @@ var Links = Backbone.Collection.extend({
         return this.models.find(function(link) {
             return (link.get('rel') === rel);
         });
+    },
+    getLinkByName: function(name) {
+        return this.models.find(function(link) {
+            return (link.get('name') === name);
+        });
     }
 
 });
