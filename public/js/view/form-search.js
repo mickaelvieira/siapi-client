@@ -1,5 +1,5 @@
 
-var SearchForm = Backbone.View.extend({
+var SearchForm = Backbone.Marionette.View.extend({
 
     el: '#form-container',
 
@@ -8,15 +8,19 @@ var SearchForm = Backbone.View.extend({
         "click #search-button" : "search"
     },
 
-    initialize: function() {
-        _.extend(this, Backbone.Events);
-    },
     render: function() {
-
+        console.log("render form");
         return this;
+    },
+    close: function() {
+        console.log("close form");
+    },
+    onShow: function() {
+        console.log("on show form");
     },
     suggest: function(e) {
 
+        console.log("suggest");
         e.preventDefault();
 
         var params = {
@@ -27,6 +31,7 @@ var SearchForm = Backbone.View.extend({
     },
     search: function(e) {
 
+        console.log("search");
         e.preventDefault();
 
         var params = {
