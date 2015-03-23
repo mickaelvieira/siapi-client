@@ -2,20 +2,23 @@
 
 var Siapi = {};
 
-var Search = require("./search.js");
+var Search   = require("./search.js");
+var FormView = require("./view/form-search.js");
 
 $(function(window) {
 
     var search = new Search();
-    search.getResult(function(result) {
+    var view = new FormView();
 
-       console.log(result.getItems());
-       console.log(result.getLinks());
-       console.log(result.getPrevPageUrl());
-       console.log(result.getNextPageUrl());
-       console.log(result.getFirstPageUrl());
-       console.log(result.getLastPageUrl());
+    view.on("search", function(params) {
 
+        var endPoint    = "/search";
+        var queryString = $.param(params);
+
+        search.setUrl(endPoint + "?" + queryString);
+        search.getResult(function(result) {
+            console.log(result);
+        });
     });
 
 }(window));

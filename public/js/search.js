@@ -7,6 +7,9 @@ var Search = function() {
     this.collection = new Collection();
 };
 
+Search.prototype.setUrl = function(url) {
+    this.collection.url = url;
+};
 Search.prototype.getResult = function(success, error) {
 
     this.collection.fetch({
