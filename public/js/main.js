@@ -18,6 +18,7 @@ $(function(window) {
         search.setUrl(endPoint + "?" + queryString);
         search.getResult(function(result) {
             console.log(result);
+            console.log(result.getItems());
         });
     });
 
