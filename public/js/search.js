@@ -12,27 +12,25 @@ Search.prototype.getResult = function(success, error) {
     this.collection.fetch({
         success: function(model, response, options) {
 
-            var result = new Result(
-                model.items,
-                model.links
-            );
-
             if (typeof success === 'function') {
-                success(result);
+                success(this.prepareResult(model));
             }
-        },
+
+        }.bind(this),
         error: function(model, response, options) {
 
-            var result = new Result(
-                model.items,
-                model.links
-            );
-
             if (typeof error === 'function') {
-                error(result);
+                error(this.prepareResult(model));
             }
-        }
+
+        }.bind(this)
     });
+};
+Search.prototype.prepareResult = function(collection) {
+    return new Result(
+        collection.items,
+        collection.links
+    );
 };
 
 module.exports = Search;
