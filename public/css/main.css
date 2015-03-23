@@ -1,4 +1,265 @@
 body {
-    color: #D6E9C6;
-    background-color: #101010;
+    color: #f1f1f1; /*#D6E9C6;*/
+    background-color: #0A0A0A;
 }
+a:link, a:hover, a:visited, a:active {
+    color: #f1f1f1;
+}
+
+/* ==============================================================================================
+* Loader
+*/
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: #000 url('../../images/ajax-loader.gif') center center no-repeat;
+    margin: -30px 0 0 -30px;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    z-index: 10000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+#loader-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    /*background: rgba(0,0,0,0.75);*/
+    background: rgba(0, 0, 0, 0);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+}
+
+/* ==============================================================================================
+* Popup
+*/
+#popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#popup-container {
+    position: relative;
+    width: 164px;
+    height: 114px;
+    display: block;
+    border: 1px solid #333;
+    background: #000 url('../../images/small-ajax-loader.gif') center center no-repeat;
+    padding: 0;
+    margin: 0;
+    z-index: 4000;
+}
+
+#popup-container img {
+    position: relative;
+    margin: 6px;
+}
+
+#popup-arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #333;
+    margin: 0 auto;
+    display: block;
+}
+
+/* ==============================================================================================
+* Gallery Arrows
+*/
+#gallery-prev-link,
+#gallery-next-link {
+    display: block;
+    margin: 0;
+    padding: 10px;
+    line-height: 1;
+    background-color: #000;
+    border-radius: 6px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+}
+
+#gallery-prev-link {
+    position: absolute;
+}
+
+#gallery-next-link {
+    position: absolute;
+    right: 0;
+}
+
+
+
+
+/* ==============================================================================================
+*
+*/
+#gallery-content {
+    margin:12px 0;
+    display:none;
+}
+#gallery-container {
+    /* display:none;*/
+}
+#gallery-container a {
+    color:#ccc;
+    font-size:48px;
+
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+
+}
+
+#gallery-container a:hover {
+    color: #f1f1f1;
+}
+
+
+#gallery-image-container {
+    /*border:1px solid #f00;*/
+    height:100%;
+    text-align:center;
+}
+#gallery-image-container #content-image{
+    height:100%;
+}
+#gallery-image-container #content-image img{
+    height:100%;
+}
+
+#gallery-informations-container{
+    position:relative;
+    top: -40px;
+    height:60px;
+    margin:-85px 0 0 0;
+    padding:0;
+
+    background-color:#000;
+
+    -moz-opacity: 0.75;
+    -webkit-opacity: 0.75;
+    opacity: 0.75;
+
+    color:#fff;
+    border:1px solid #000;
+    display:none;
+}
+#gallery-informations {
+
+
+
+    margin: 10px 0;
+
+}
+#selector {
+    /*height:50px;*/
+    margin:-65px 0 0;
+    padding:10px 0 4px;
+    background-color:#000;
+    display:none;
+    text-align:center;
+    position:absolute;
+}
+#selector-elements-container {
+    margin:0 auto;
+    display:inline-block;
+}
+#selector a.selector-btn-picture {
+    color:#333;
+    float:left;
+    display:block;
+    border:1px solid #333;
+    outline:none;
+    width:50px;
+    height:50px;
+
+    -moz-opacity: 0.6;
+    -webkit-opacity: 0.6;
+    opacity: 0.6;
+
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+#selector a.selector-btn-picture:hover {
+    color:#f1f1f1;
+}
+#selector a.selected {
+
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+    opacity: 1;
+
+    border:1px solid #fff;
+}
+#selector-prev-link,
+#selector-next-link {
+    font-size:32px;
+    float:left;
+    display:block;
+    margin:0;
+    padding:10px 20px 0;
+    text-align:center;
+    border:0px
+}
+#selector-mask {
+    float:left;
+    overflow:hidden;
+    position: relative;
+}
+#selector-item-container {
+    display:block;
+    width:10000px;
+    position: relative;
+}
+#selector-item-container li {
+    float: left;
+    margin:3px;
+
+}
+
+/* === | ============================================= OVERLAYS ============================================= */
+
+#overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display:none;
+}
+.black-overlay {
+    background: #000;
+}
+.black-opacity-overlay {
+    background: #000;
+    opacity: 0.3;
+}
+.white-overlay {
+    background: #fff;
+}
+.white-opacity-overlay {
+    background: #fff;
+    opacity: 0.75;
+}
+
+
+
+
+
+
