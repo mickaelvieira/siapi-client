@@ -121,7 +121,7 @@ module.exports = function (grunt) {
                 length: 16,
                 rename: false,
                 ignorePatterns: [
-                    'components'
+                    'jpg$'
                 ]
             },
             assets: {
