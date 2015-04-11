@@ -2,6 +2,7 @@ var express = require('express');
 var qString = require('querystring');
 var hbs     = require('hbs');
 var http    = require('http');
+var logger  = require('./modules/logger.js');
 var app     = express();
 
 app.use(express.static('public'));
@@ -9,12 +10,17 @@ app.set('view engine', 'html');
 app.engine('html', hbs.__express);
 
 app.get('/', function (req, res) {
+
+    logger.info('Home route!!!');
+
     res.render('index', {
         message: 'Hello world!!!'
     });
 });
 
 app.get('/search', function (req, res) {
+
+    logger.info('Search route!!!');
 
     var queryString = qString.stringify({
         'q' : req.query.q
@@ -47,5 +53,11 @@ app.get('/search', function (req, res) {
 
     request.end();
 });
+
+
+
+app.use(require('morgan')('combined', {
+    "stream": logger.stream
+}));
 
 http.createServer(app).listen(3000, '127.0.0.1');

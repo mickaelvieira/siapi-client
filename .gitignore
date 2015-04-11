@@ -3,6 +3,7 @@ node_modules
 public/dist
 public/vendor
 public/images/sample
+logs/*
 _SpecRunner.html
 
 
